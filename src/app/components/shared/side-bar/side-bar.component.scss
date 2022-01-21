@@ -1,0 +1,58 @@
+@import 'base.scss';
+
+:host {
+  @include absolute-100();
+
+  .side-bar-container {
+    @include absolute-100();
+    @include flex-column();
+    background-color: $black;
+    padding: 20px 0;
+
+    & > .item {
+      @include flex-row();
+      @include default-transition($duration: 200ms);
+      cursor: pointer;
+      margin-bottom: 3px;
+      padding: 8px 12px;
+
+      &:hover {
+        background-color: lighten($black, 30%);
+      }
+
+      & * {
+        cursor: pointer;
+      }
+
+      &.active {
+        background-color: lighten($black, 30%);
+      }
+
+      & > img {
+        height: 12px;
+        margin-right: 8px;
+      }
+
+      & > label {
+        @include Roboto-Bold();
+        color: $white;
+        font-size: 13px;
+      }
+    }
+
+    @include responsive-layout('large') {
+      & > .item {
+        @include flex-row();
+
+        & > img {
+          height: 14px;
+          margin-right: 10px;
+        }
+
+        & > label {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

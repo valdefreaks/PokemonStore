@@ -1,5 +1,5 @@
 import {RouterModule, Routes} from '@angular/router';
-import {ROUTE_EMPTY, ROUTE_TO_LOGIN, ROUTE_TO_POKEMONS, ROUTE_TO_SYSTEM} from './utils/constants';
+import {ROUTE_EMPTY, ROUTE_TO_LOGIN, ROUTE_TO_POKEMON, ROUTE_TO_SYSTEM} from './utils/constants';
 import {CoreContainerComponent} from './components/core-container/core-container.component';
 import {NgModule} from '@angular/core';
 
@@ -21,19 +21,19 @@ const routes: Routes = [
     children: [
       {
         path: ROUTE_EMPTY,
-        redirectTo: ROUTE_TO_POKEMONS,
+        redirectTo: ROUTE_TO_POKEMON,
         pathMatch: 'full',
       },
       {
-        path: ROUTE_TO_POKEMONS,
+        path: ROUTE_TO_POKEMON,
         loadChildren: () =>
           import('./components/pokemon/pokemon.module').then(
             (m) => m.PokemonModule,
           ),
       },
-      {path: '**', redirectTo: ROUTE_TO_SYSTEM},
     ],
   },
+  {path: '**', redirectTo: ROUTE_TO_SYSTEM},
 ];
 
 @NgModule({

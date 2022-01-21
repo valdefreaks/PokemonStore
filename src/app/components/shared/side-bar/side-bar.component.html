@@ -1,0 +1,10 @@
+<div class="side-bar-container">
+  <div class="item" [ngClass]="(actualRoute === 'pokemon-list' || actualRoute === 'pokemon-details') && 'active'" (click)="navigate('pokemon-list')">
+    <img src="assets/images/red-pokeball.svg" alt="pokeball">
+    <label>{{'Pokemons'}}</label>
+  </div>
+  <div class="item" [ngClass]="actualRoute === 'favorites' && 'active'">
+    <img src="assets/images/red-pokeball.svg" alt="pokeball">
+    <label>{{'Favoritos'}}</label>
+  </div>
+</div>

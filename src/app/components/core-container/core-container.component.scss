@@ -1,0 +1,74 @@
+@import 'base.scss';
+
+:host {
+  @include absolute-100();
+
+  #core-container {
+    @include absolute-100();
+    @include flex-column();
+    overflow: hidden;
+
+    & > #header {
+      @include default-transition();
+      flex: 0 0 40px;
+      overflow: hidden;
+    }
+
+    & > #main {
+      @include flex-row();
+      flex: 1 1 auto;
+      overflow: hidden;
+      position: relative;
+
+      & > #side-bar {
+        @include default-transition();
+        flex: 0 0 160px;
+        overflow: hidden;
+      }
+
+      & > .arrow {
+        @include default-transition();
+        @include flex-row();
+        cursor: pointer;
+        height: 21px;
+        position: absolute;
+        left: 144px;
+        top: 50%;
+        width: 16px;
+      }
+
+      &.close {
+        & > #side-bar {
+          flex: 0 0 0;
+        }
+
+        & > .arrow {
+          left: 0;
+
+          & > img {
+            transform: scaleX(-1);
+          }
+
+        }
+      }
+    }
+
+    @include responsive_layout('large') {
+      & > #header {
+        flex: 0 0 50px;
+      }
+
+      & > #main {
+        & > #side-bar {
+          flex: 0 0 200px;
+        }
+
+        & > .arrow {
+          left: 177px;
+          height: 32px;
+          width: 23px;
+        }
+      }
+    }
+  }
+}

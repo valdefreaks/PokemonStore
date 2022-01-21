@@ -1,0 +1,15 @@
+@import 'base.scss';
+
+:host {
+  @include absolute-100();
+
+  #pokemon-container {
+    @include absolute-100();
+    @include flex-column();
+    overflow: hidden;
+
+    & > .outlet {
+      flex: 1 1 100%;
+    }
+  }
+}

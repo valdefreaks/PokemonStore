@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-core-container',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./core-container.component.scss']
 })
 export class CoreContainerComponent implements OnInit {
+  sideBarIsOpen: boolean;
 
-  constructor() { }
+  constructor() {
+    this.sideBarIsOpen = true;
+  }
 
   ngOnInit(): void {
+  }
+
+  handleSideBar(): void {
+    this.sideBarIsOpen = !this.sideBarIsOpen;
   }
 
 }

@@ -1,1 +1,12 @@
-<router-outlet></router-outlet>
+<div id="core-container">
+  <header id="header">
+    <app-header></app-header>
+  </header>
+  <main id="main" [ngClass]="!sideBarIsOpen && 'close'">
+    <app-side-bar id="side-bar"></app-side-bar>
+    <router-outlet class="router-outlet"></router-outlet>
+    <div class="arrow" (click)="handleSideBar()">
+      <img src="assets/images/arrow.svg" alt="">
+    </div>
+  </main>
+</div>

@@ -1,0 +1,140 @@
+/* ------------Media Queries Breakpoints------------ */
+$breakpoints: (
+  'small': (
+    min-width: 0px,
+  ),
+  'medium': (
+    min-width: 1280px,
+  ),
+  'large': (
+    min-width: 1600px,
+  ),
+  'extra-large': (
+    min-width: 1900px,
+  )
+);
+
+/* ------------Font Families------------ */
+$font_family_novecento: 'Novecento';
+$font_family_novecento_bold: 'Novecento-Bold';
+
+$font_family_roboto_light: 'Roboto-Light';
+$font_family_roboto_regular: 'Roboto-Regular';
+$font_family_roboto_bold: 'Roboto-Bold';
+
+$font_family_roboto_light_italic: 'Roboto-Light-Italic';
+$font_family_roboto_regular_italic: 'Roboto-Regular-Italic';
+$font_family_roboto_bold_italic: 'Roboto-Bold-Italic';
+
+/* ------------Font Weights------------ */
+$font_weight_thin: 100;
+$font_weight_light: 300;
+$font_weight_regular: 400;
+$font_weight_medium: 500;
+$font_weight_semi_bold: 600;
+$font_weight_bold: 700;
+$font_weight_black: 900;
+
+/* ------------Colors------------ */
+$red: #ef5350;
+$white: #ffffff;
+$black: #2f2f2f;
+
+/* ------------Mixin de Flex------------ */
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@mixin flex-row-no-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin absolute-center {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+@mixin absolute-100 {
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------Mixin de Fonts------------ */
+@mixin Novecento() {
+  font-family: $font_family_novecento;
+  font-weight: $font_weight_regular;
+  font-display: swap;
+}
+
+@mixin Novecento-Bold() {
+  font-family: $font_family_novecento_bold;
+  font-weight: $font_weight_bold;
+  font-display: swap;
+}
+
+@mixin Roboto-Light() {
+  font-family: $font_family_roboto_light;
+  font-weight: $font_weight_light;
+  font-style: normal;
+}
+
+@mixin Roboto-Regular() {
+  font-family: $font_family_roboto_regular;
+  font-weight: $font_weight_regular;
+  font-style: normal;
+}
+
+@mixin Roboto-Bold() {
+  font-family: $font_family_roboto_bold;
+  font-weight: $font_weight_bold;
+  font-style: normal;
+}
+
+@mixin Roboto-Light-Italic() {
+  font-family: $font_family_roboto_light_italic;
+  font-weight: $font_weight_light;
+  font-style: italic;
+}
+
+@mixin Roboto-Regular-Italic() {
+  font-family: $font_family_roboto_regular_italic;
+  font-weight: $font_weight_light;
+  font-style: italic;
+}
+
+@mixin Roboto-Bold-Italic() {
+  font-family: $font_family_roboto_bold_italic;
+  font-weight: $font_weight_bold;
+  font-style: italic;
+}
+
+/* -------Mixin de Media Queries-------- */
+
+@mixin responsive-layout($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media #{inspect(map-get($breakpoints, $size))} {
+      @content;
+    }
+  } @else {
+    @warn "No existe el tamaño `#{$size}`. "+"en la lista de breakpoints, revise el map de `$breakpoints`.";
+  }
+}
+
+@mixin default-transition($property: all, $duration: 300ms, $function: ease-in-out) {
+  transition: $property $duration $function;
+}
