@@ -1,0 +1,57 @@
+@import 'base.scss';
+
+:host {
+  @include absolute-100();
+
+  #login-container {
+    @include absolute-100();
+    @include absolute-center();
+    @include flex-column();
+    background-color: $red;
+    overflow: hidden;
+
+    & > .card {
+      @include flex-column();
+      align-items: center;
+      background-color: rgba($black, 0.3);
+      border-radius: 10px;
+      box-shadow: 0 0 4px 5px rgba($black, 0.3);
+      padding: 50px;
+
+      & > img {
+        height: 60px;
+        margin-bottom: 25px;
+      }
+
+      & > .input {
+        @include Roboto-Bold();
+        border: none;
+        border-radius: 5px;
+        color: $black;
+        margin-bottom: 12px;
+        outline: none;
+        padding: 8px 12px;
+        text-align: center;
+        width: 100%;
+      }
+
+      & > button {
+        @include Novecento-Bold();
+        @include default-transition();
+        background-color: $yellow;
+        border: none;
+        border-radius: 5px;
+        color: $white;
+        cursor: pointer;
+        margin-top: 12px;
+        outline: none;
+        padding: 8px 12px;
+        width: 100%;
+
+        &:hover {
+          background-color: darken($yellow, 8%);
+        }
+      }
+    }
+  }
+}
