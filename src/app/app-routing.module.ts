@@ -17,7 +17,6 @@ const routes: Routes = [
   {
     path: ROUTE_TO_SYSTEM,
     component: CoreContainerComponent,
-    // canActivate: [AuthGuardService],
     children: [
       {
         path: ROUTE_EMPTY,

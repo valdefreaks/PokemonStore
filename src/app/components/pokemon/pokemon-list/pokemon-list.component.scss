@@ -1,0 +1,34 @@
+@import 'base.scss';
+
+:host {
+  @include absolute-100();
+
+  #pokemon-list-container {
+    @include absolute-100();
+    @include flex-column();
+    overflow: hidden;
+
+    & > .list {
+      @include flex-row-wrap();
+      flex: 1 1 auto;
+      padding: 30px;
+    }
+
+    & > .totals {
+      @include flex-row();
+      @include absolute-center();
+      border-top: 1px solid $gray;
+      flex: 0 0 auto;
+    }
+
+    @include responsive-layout('large') {
+      & > .list {
+        padding: 35px;
+      }
+
+      & > .totals {
+        padding: 15px;
+      }
+    }
+  }
+}
